@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Registered Student</h1>
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Courser</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for student in students %}
+        <tr>
+            <td>{{ student.first_name }}</td>
+            <td>{{ student.last_name }}</td>
+            <td>{{ student.gender }}</td>
+            <td>{{ student.course }}</td>
+        </tr>
+    {% endfor %}
+  </tdody>
+</table>
+<a href="{% url 'student_registration' %}">Register a student</a>
+{% endblock %}
