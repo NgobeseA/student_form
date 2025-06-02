@@ -28,7 +28,11 @@ def student_registration(request):
 
 def register_view(request):
     if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.post)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
-            user = form.get_user
-            
+            user = form.save()
+            login(request, user)
+            return redirect('welcome')
+    else:
+        form = RegistrationForm()
+        return render(request, 'signup.html', {'form': form})
