@@ -1,5 +1,7 @@
 {% extends "base.html" %} {% block content %}
 <h1>Welcome to student portal</h1>
-<p>Don't you have an account?</p>
-<a href="{% url 'student_registration' %}">Click here to register</a>
+<p class="d-inline-flex gap-1">
+  <a class="btn btn-primary active" href="">Login</a>
+  <a class="btn btn-primary active" href="{%url 'signup'%}">Register</a>
+</p>
 {% endblock %}

@@ -1,10 +1,16 @@
 {% extends 'base.html' %} {% block content %}
 <div class="d-flex justify-content-center align-item-center flex-column">
-    <h1>Registration Form</h1>
+    <h1>Profile</h1>
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <button type='submit' class="btn btn-success">Register</button>
     </form>
+    {% if profile %}
+    <p> Full NAme: {{profile.first_name}} {{profile.last_name}}</p>
+    <p> Course: {{profile.course}}</p>
+    <p>Gender: {{profile.gender}}</p>
+    <p>Age: {{profile.age}}</p>
+    {%endif%}
 </div>
 {% endblock %}
